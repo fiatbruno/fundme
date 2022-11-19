@@ -4,34 +4,7 @@
 	},
 	"language": "Solidity",
 	"output": {
-		"abi": [
-			{
-				"inputs": [],
-				"name": "fund",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "funders",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			}
-		],
+		"abi": [],
 		"devdoc": {
 			"kind": "dev",
 			"methods": {},
@@ -45,7 +18,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/FundMe.sol": "FundMe"
+			"contracts/PriceConverter.sol": "PriceConverter"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -65,14 +38,6 @@
 			"urls": [
 				"bzz-raw://b3beaa37ee61e4ab615e250fbf01601ae481de843fd0ef55e6b44fd9d5fff8a7",
 				"dweb:/ipfs/QmeZUVwd26LzK4Mfp8Zba5JbQNkZFfTzFu1A6FVMMZDg9c"
-			]
-		},
-		"contracts/FundMe.sol": {
-			"keccak256": "0x43927d1e09d2c9158814ee16f4e3c9954465e879be5df777ce8bed408df9a583",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://b2c34cee83b153b92d30b94080601787b9048e9b6077e2af494f85d7b88be817",
-				"dweb:/ipfs/QmSkDjA4XFkmxwzAwtUJ6i3s4DGyLDoHpyWdZwZGPJ6T9y"
 			]
 		},
 		"contracts/PriceConverter.sol": {
