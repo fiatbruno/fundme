@@ -14,9 +14,13 @@ contract FundMe {
     using PriceConverter for uint256;
 
     uint256 minimumUsd = 50 * 1e18;
-
+    address owner;
     address[] public funders;
     mapping(address => uint256) addressToAmountFunded;
+
+    constructor(){
+        owner = msg.sender; 
+    }
 
 
     function fund() public payable {
@@ -30,5 +34,30 @@ contract FundMe {
         addressToAmountFunded[msg.sender] = msg.value;
     }
     
-    // function withdraw() public
+    function withdraw() public onlyOwner{
+        for(uint256 funderIndex = 0; funderIndex < funders.length; funderIndex++){
+            address funder = funders[funderIndex];
+            addressToAmountFunded[funder] = 0;
+        }
+        funders = new address[](0);
+
+        // // Allow of these are way to send ETH or any other native 
+        // // blochain token from a contract an address
+
+        // //transfer
+        // payable(msg.sender).transfer(address(this).balance);
+        
+        // //send
+        // bool sendResponse = payable(msg.sender).send(address(this).balance);
+        // require(sendResponse, "Failed to withdraw funds with send");
+        
+        //call
+        (bool callResponse,) = payable(msg.sender).call{value: address(this).balance}("");
+        require(callResponse, "Failed to withdraw funds with call");
+    }
+
+    modifier onlyOwner {
+        require(msg.sender == owner, "ONLY THE OWNER CAN WITHDRAW");
+        _;
+    }
 }
