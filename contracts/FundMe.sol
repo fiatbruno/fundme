@@ -13,10 +13,10 @@ contract FundMe {
 
     using PriceConverter for uint256;
 
-    uint256 minimumUsd = 50 * 1e18;
-    address owner;
+    uint256 public minimumUsd = 1 * 1e18;
+    address public owner;
     address[] public funders;
-    mapping(address => uint256) addressToAmountFunded;
+    mapping(address => uint256) public addressToAmountFunded;
 
     constructor(){
         owner = msg.sender; 
